@@ -8,6 +8,11 @@ on:
     paths:
       - '明文源吗'
 
+on:
+  workflow_dispatch: # 保留手动运行按钮
+  schedule:
+    - cron: '0 0 * * *' # 每天 UTC 0 点（北京时间早 8 点）自动运行一次
+
 jobs:
   build-and-obfuscate:
     runs-on: ubuntu-latest
